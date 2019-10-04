@@ -17,6 +17,7 @@
 		$ThiOneDMonths=array("Enero","Marzo","Mayo","Julio","Agosto","Octubre","Diciembre" );
 		$ThirtyDMonths=array("Abril","Junio","Septiembre","Noviembre");
 
+		
 
 	#Numero de dias del mes 
 		if (in_array($nmonth[$AMonth-1], $ThiOneDMonths) ) {
@@ -27,13 +28,21 @@
 		}else{
 				$LastDayM=28;	
 		}
-
+		$Endofcalendar=$dayweek+$LastDayM;	
 ?> 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Calendari</title>
+	<style type="text/css">
 
+		.today{
+			background-color: red;
+		}
+		#calendario{
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 	<?php
@@ -55,50 +64,36 @@
 				<th>Domingo</th>
 			</tr>
 			<tr>
-			<?php 
-				
-		for($i=1;$i<=35;$i++)
+		<?php 
+
+		
+
+		for($i=1;$i<=42;$i++)
 
 		{
-
-
 			if($i==$dayweek)
 			{
 				$day=1;
 			}
-			if($i<$dayweek || $i>=$LastDayM)
+			if($i<$dayweek || $i>=$Endofcalendar)
 
 			{
-
 				echo "<td>&nbsp;</td>";
-
 			}else{
-
 
 				if($day==$ADay)
 
-					echo "<td class='hoy'>$day</td>";
-
+					echo "<td class='today'>$day</td>";
 				else
-
 					echo "<td>$day</td>";
-
-				$day++;
+					$day++;
 
 			}
-
-			
-
 			if($i%7==0)
-
 			{
-
 				echo "</tr><tr>\n";
-
 			}
-
 		}
-
 
 			?>
 			</tr>
