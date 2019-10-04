@@ -35,7 +35,10 @@
 <head>
 	<title>Calendari</title>
 	<style type="text/css">
-
+		table, th, td {
+  			border: 1px solid black;
+  			border-collapse: collapse;
+		}
 		.today{
 			background-color: red;
 		}
