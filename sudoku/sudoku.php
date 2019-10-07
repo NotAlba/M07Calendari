@@ -6,9 +6,22 @@
 		table, th, td {
   			border: 1px solid black;
   			border-collapse: collapse;
+  			
+		}
+		table{
+			border: 2px solid black;
 		}
 		#sudoku{
 			text-align: center;
+		}
+		tr.arriba{
+			border-top: 2px solid black;
+
+
+		}
+		td.lateral{
+			border-right: 2px solid black;
+
 		}
 	</style>
 </head>
@@ -49,9 +62,19 @@
 			}
 			#creacio taula a partir de matriu
 			for ($y=0; $y < $matrixlength ; $y++) {
-				echo "</tr><tr>\n";	
-				for ($z=0; $z <$matrixlength ; $z++) {	
-					echo "<td>".$matrix[$y][$z]."</td>";	
+				if ($y==3 || $y==6) {
+					echo "<tr class='arriba'></tr>\n";	
+				}else{
+					echo "<tr></tr>\n";	
+				}
+
+				
+				for ($z=0; $z <$matrixlength ; $z++) {
+					if ($z==2 || $z==5) {	
+						echo "<td class='lateral'>".$matrix[$y][$z]."</td>";
+					}else{
+						echo "<td>".$matrix[$y][$z]."</td>";	
+					}	
 				}
 
 			}
